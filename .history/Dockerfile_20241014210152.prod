@@ -1,0 +1,22 @@
+FROM python:3.12.6-slim
+
+ENV PIPENV_VENV_IN_PROJECT 1
+
+# pipenv - npm for python
+RUN pip install pipenv
+
+# non-root user
+RUN useradd -ms /bin/bash my-user
+
+# estabeleço o usuário padrão da imagem/container
+USER my-user
+
+WORKDIR /app
+
+COPY . .
+
+RUN pipenv install
+
+
+# comando que será executado ao iniciar o container
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]

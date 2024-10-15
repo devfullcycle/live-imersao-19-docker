@@ -1,0 +1,6 @@
+FROM python:3.12.6-slim
+
+RUN useradd -ms /bin/bash my-user
+
+
+CMD ["tail", "-f", "/dev/null"]

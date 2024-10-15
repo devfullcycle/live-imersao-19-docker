@@ -1,0 +1,7 @@
+FROM python:3.12.6-slim
+
+1000
+
+
+
+CMD ["tail", "-f", "/dev/null"]
